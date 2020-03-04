@@ -1,0 +1,22 @@
+[Desktop Entry]
+Categories=Science;Application;
+Comment[en_US]=Computable notebook
+Comment=Computable notebook
+Encoding=UTF-8
+Exec=JUPYTER
+GenericName[en_US]=
+GenericName=
+Icon=jupyter
+MimeType=
+Name[en_US]=Jupyter Notebook
+Name=Jupyter Notebook
+NoDisplay=false
+Path=
+StartupNotify=true
+Terminal=False
+TerminalOptions=
+Type=Application
+X-DBUS-ServiceName=
+X-DBUS-StartupType=
+X-KDE-SubstituteUID=false
+X-KDE-Username=

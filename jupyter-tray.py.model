@@ -1,0 +1,52 @@
+#!/usr/bin/python3
+
+import os
+import gi
+gi.require_version('Gtk', '3.0')
+gi.require_version('AppIndicator3', '0.1')
+from gi.repository import Gtk as gtk
+from gi.repository import AppIndicator3 as appin
+
+def main():
+    os.chdir(os.environ['HOME'])
+    os.system("JUPYTER notebook &")
+    indicator = appin.Indicator.new("Jupyter", \
+            "jupyter", \
+            appin.IndicatorCategory.APPLICATION_STATUS)
+    indicator.set_status(appin.IndicatorStatus.ACTIVE)
+    indicator.set_menu(menu())
+    gtk.main()
+
+def menu():
+    m = gtk.Menu()
+
+    i = gtk.MenuItem("Restart Jupyter")
+    i.connect('activate', restartJupyter)
+    m.append(i)
+
+    i = gtk.MenuItem("Copy notebook address")
+    i.connect('activate', copyAddress)
+    m.append(i)
+
+    i = gtk.MenuItem("Exit")
+    i.connect('activate', exitJupyter)
+    m.append(i)
+
+    m.show_all()
+    return m
+
+def restartJupyter(_):
+    os.system("JUPYTER notebook stop; JUPYTER notebook &")
+
+def copyAddress(_):
+    os.system('JUPYTER notebook list' \
+            + ' | grep "http://localhost:[0-9]{1,6}/\?token=[0-9a-fA-F]*"' \
+            + ' | xclip -selection clipboard')
+
+def exitJupyter(_):
+    os.system("JUPYTER notebook stop")
+    gtk.main_quit()
+
+if __name__ == "__main__":
+    main()
+
