@@ -40,7 +40,7 @@ def restartJupyter(_):
 
 def copyAddress(_):
     os.system('JUPYTER notebook list' \
-            + ' | grep "http://localhost:[0-9]{1,6}/\?token=[0-9a-fA-F]*"' \
+            + ' | grep -E -o "http://localhost:[0-9]{1,6}/\?token=[0-9a-fA-F]*"' \
             + ' | xclip -selection clipboard')
 
 def exitJupyter(_):
