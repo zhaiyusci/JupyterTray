@@ -12,12 +12,20 @@ Basically, it is a piece of python code with some settings files.  By using thes
 
 ## Installation
 
+First, install jupyter notebook.
+
+To make it work, you also need some more package. On Ubuntu, you need
+``` shell
+sudo apt install gir1.2-appindicator3-0.1
+```
+
 Run the script called `setup.py` and follow the instructions prompt on screen.
+
 
 ## TODO
 
 - [ ] More thoughtful in the setup script.
-- [ ] Test it also on Linux distributions other than openSUSE.
+- [ ] Test it also on Linux distributions other than openSUSE and Kubuntu.
 - [ ] List a good prerequest package list for the users.
 - [ ] ... and others.
 
